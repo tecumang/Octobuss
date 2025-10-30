@@ -2,8 +2,11 @@
 
 @section('title', 'Run Your Entire Business on One Smart Platform')
 
+<link rel="stylesheet" href="{{ asset('css/feature.css') }}">
+
 @section('content')
 
+    {{-- Hero Section --}}
     <section class="hero-section">
         <div class="container">
             <div class="row align-items-center">
@@ -64,12 +67,13 @@
         </div>
     </section>
 
+    {{-- Intro Section --}}
     <section class="intro-section py-5 position-relative overflow-hidden text-center text-dark">
         <div class="container position-relative">
             <div class="row justify-content-center">
                 <div class="col-lg-8" data-aos="fade-up">
                     <h1 class="fw-bold display-5 mb-3">
-                        TEN Powerful Modules. <span class="text-primary">Infinite Possibilities.</span>
+                        TEN Powerful Modules <br> <span class="text-primary">Infinite Possibilities</span>
                     </h1>
                     <p class="lead text-muted mb-5">
                         Each module in Octopyder BMS is designed to simplify one core part of your business —
@@ -96,11 +100,100 @@
         </div>
     </section>
 
+    {{-- Integration Section --}}
+    <section class="integration-section py-5 position-relative overflow-hidden text-center text-dark">
+        <div class="integration-bg"></div>
+
+        <div class="container position-relative">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h1 class="fw-bold display-5 mb-3">
+                        Connect With the Tools You Already Use
+                    </h1>
+                    <p class="lead text-muted">
+                        Octopyder BMS integrates seamlessly with email, accounting, and communication platforms —
+                        keeping your operations unified across all systems.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Integration Icons Carousel -->
+            <div class="integration-grid mx-auto" data-aos="zoom-in">
+                <div class="integration-icon bg-dark" data-name="Gmail">
+                    <img src="{{ asset('img/integrations/gmail.png') }}" alt="Gmail">
+                </div>
+                <div class="integration-icon bg-dark" data-name="Slack">
+                    <img src="{{ asset('img/integrations/slack.png') }}" alt="Slack">
+                </div>
+                <div class="integration-icon bg-dark" data-name="Google Drive">
+                    <img src="{{ asset('img/integrations/drive.png') }}" alt="Google Drive">
+                </div>
+                <div class="integration-icon bg-dark" data-name="Razorpay">
+                    <img src="{{ asset('img/integrations/razorpay.png') }}" alt="Razorpay">
+                </div>
+                <div class="integration-icon bg-dark" data-name="Tally">
+                    <img src="{{ asset('img/integrations/tally.png') }}" alt="Tally">
+                </div>
+                <div class="integration-icon bg-dark" data-name="Zoom">
+                    <img src="{{ asset('img/integrations/zoom.png') }}" alt="Zoom">
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-5" data-aos="fade-up" data-aos-delay="200">
+                <a href="#" class="btn btn-primary btn-lg rounded-pill px-4 py-2 shadow-sm">
+                    Explore Integrations <i class="fa-solid fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    {{-- Section - Call to Action  --}}
+    <section class="cta-section text-center py-5 position-relative overflow-hidden">
+        <div class="cta-bg"></div>
+        <div class="cta-particles"></div>
+
+        <div class="container position-relative" data-aos="zoom-in">
+            <h1 class="text-light fw-bold mb-2">Ready to Transform Your Business?</h1>
+            <p class="text-light fs-5 mb-4">
+                Join thousands of businesses using OctoBuss to streamline operations and drive growth.
+            </p>
+
+            <div class="d-flex justify-content-center gap-3">
+                <button class="btn btn-cta-glow cta-ripple">
+                    Get Started <i class="fa-solid fa-arrow-right ms-2"></i>
+                </button>
+                <button class="btn btn-light cta-ripple">
+                    Schedule Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky CTA bar (appears after you scroll past the main CTA) -->
+    <div class="sticky-cta shadow-lg" id="stickyCta" aria-hidden="true">
+        <div class="container d-flex flex-wrap align-items-center justify-content-between gap-2 py-2">
+            <span class="text-light fw-semibold">Supercharge your operations with OctoBuss</span>
+            <div class="d-flex gap-2">
+                <button class="btn btn-light cta-ripple">Schedule Demo</button>
+                <button class="btn btn-light cta-ripple">
+                    Get Started <i class="fa-solid fa-arrow-right ms-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll-to-top chip -->
+    <button class="to-top" id="toTop" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
 
 @endsection
 
 @push('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const elevator = document.querySelector('.module-elevator');
@@ -266,5 +359,62 @@
             // Initialize first module
             showModule(0);
         });
+    </script>
+
+    <script>
+        // Ripple feedback
+        document.querySelectorAll('.cta-ripple').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.remove('rippling');
+                void btn.offsetWidth; // reflow
+                btn.classList.add('rippling');
+                setTimeout(() => btn.classList.remove('rippling'), 450);
+            });
+        });
+
+        // Sticky CTA + To-top visibility using IntersectionObserver (graceful fallback)
+        const sticky = document.getElementById('stickyCta');
+        const toTop = document.getElementById('toTop');
+        const ctaSection = document.querySelector('.cta-section');
+
+        function showSticky(flag) {
+            if (!sticky) return;
+            sticky.classList.toggle('visible', flag);
+            sticky.setAttribute('aria-hidden', flag ? 'false' : 'true');
+        }
+
+        function showToTop(flag) {
+            if (!toTop) return;
+            toTop.classList.toggle('visible', flag);
+        }
+
+        if ('IntersectionObserver' in window && ctaSection) {
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    const isVisible = e.isIntersecting && e.intersectionRatio > 0.2;
+                    showSticky(!isVisible);
+                    showToTop(!isVisible);
+                });
+            }, {
+                threshold: [0, .2, 1]
+            });
+            io.observe(ctaSection);
+        } else {
+            // Fallback on scroll
+            window.addEventListener('scroll', () => {
+                const trigger = 300;
+                const scrolled = window.scrollY > trigger;
+                showSticky(scrolled);
+                showToTop(scrolled);
+            });
+        }
+
+        // Scroll to top
+        if (toTop) {
+            toTop.addEventListener('click', () => window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            }));
+        }
     </script>
 @endpush

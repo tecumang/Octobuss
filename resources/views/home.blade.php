@@ -275,7 +275,7 @@
     </section>
 
     {{-- Section - Features Highlights  --}}
-    <section class="my-5 position-relative overflow-hidden">
+    <section class="my-5 container position-relative overflow-hidden">
 
         <h1 class="text-center text-dark fw-bold" data-aos="fade-up">Built for Modern Businesses</h1>
         <p class="text-center text-dark fs-5" data-aos="fade-up" data-aos-delay="100">
@@ -283,7 +283,7 @@
         </p>
 
         <div class="row g-3 mt-3">
-            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="0">
+            <div class="col-md-3 col-6 my-2" data-aos="zoom-in" data-aos-delay="0">
                 <div class="card feature-tile tilt-card">
                     <div class="card-body text-center">
                         <span class="icon-wrap">
@@ -296,7 +296,7 @@
                 </div>
             </div>
 
-            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100">
+            <div class="col-md-3 col-6 my-2" data-aos="zoom-in" data-aos-delay="100">
                 <div class="card feature-tile tilt-card">
                     <div class="card-body text-center">
                         <span class="icon-wrap">
@@ -309,7 +309,7 @@
                 </div>
             </div>
 
-            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="col-md-3 col-6 my-2" data-aos="zoom-in" data-aos-delay="200">
                 <div class="card feature-tile tilt-card">
                     <div class="card-body text-center">
                         <span class="icon-wrap">
@@ -322,7 +322,7 @@
                 </div>
             </div>
 
-            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300">
+            <div class="col-md-3 col-6 my-2" data-aos="zoom-in" data-aos-delay="300">
                 <div class="card feature-tile tilt-card">
                     <div class="card-body text-center">
                         <span class="icon-wrap">
@@ -485,8 +485,6 @@
     <button class="to-top" id="toTop" aria-label="Scroll to top">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
-
-
 
 
 @endsection

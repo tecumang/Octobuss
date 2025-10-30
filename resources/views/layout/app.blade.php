@@ -123,9 +123,10 @@
 
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="{{ route('feature') }}" class="nav-link">Features</a></li>
-                    <li class="nav-item"><a href="#modules" class="nav-link">Modules</a></li>
-                    <li class="nav-item"><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
                     <li class="nav-item ms-lg-3">
                         <a href="" class="btn btn-primary">Get Started</a>
                     </li>
