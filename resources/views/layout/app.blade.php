@@ -3,216 +3,107 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>OctoBuss</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>@yield('title', 'OctoBuss | Centralized Business Platform')</title>
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon" />
 
-    <!-- Fonts & Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- MDB -->
-    <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
-    <!-- Custom CSS -->
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
     <style>
+        :root {
+            --primary: #0a4ed7;
+            --secondary: #00d4ff;
+            --dark: #0b1120;
+            --light: #f9faff;
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: #1a1a1a;
             scroll-behavior: smooth;
-            background-color: #f9fafe;
         }
 
         /* Navbar */
         .navbar {
-            background-color: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: background 0.3s ease;
         }
 
-        .navbar.scrolled {
-            background-color: #010d30;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        .navbar-brand img {
+            height: 50px;
         }
 
-        .navbar .nav-link {
-            position: relative;
-            color: #010d30 !important;
+        .nav-link {
+            font-weight: 500;
+            color: #1a1a1a;
             margin: 0 12px;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        /* CTA Button */
+        .btn-primary {
+            background: var(--primary);
+            border: none;
+            border-radius: 50px;
+            padding: 8px 20px;
             font-weight: 500;
         }
 
-        .navbar.scrolled .nav-link {
-            color: #fff !important;
-        }
-
-        .navbar .nav-link::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 0%;
-            height: 2px;
-            background: #007bff;
-            transition: width 0.3s ease;
-        }
-
-        .navbar .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* Button Animation */
-        .Btn-Container {
-            background: linear-gradient(45deg, #007bff, #00d4ff);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 10px 22px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 12px rgba(0, 123, 255, 0.4);
-        }
-
-        .Btn-Container:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6);
-        }
-
-        .icon-Container svg {
-            transform: translateX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .Btn-Container:hover .icon-Container svg {
-            transform: translateX(4px);
+        .btn-primary:hover {
+            background: var(--secondary);
+            color: #000;
         }
 
         /* Footer */
         footer {
-            position: relative;
-            overflow: hidden;
+            background: var(--dark);
+            color: #ccc;
+            padding-top: 3rem;
         }
 
-        footer::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, #03247b 0%, #010d30 70%);
-            transform: rotate(25deg);
-            z-index: 0;
-        }
-
-        footer * {
-            position: relative;
-            z-index: 1;
+        footer a {
+            color: #ccc;
+            text-decoration: none;
         }
 
         footer a:hover {
-            color: #00d4ff !important;
-            transition: color 0.3s ease;
+            color: var(--secondary);
         }
 
-        footer i {
-            transition: transform 0.3s ease;
+        footer h6 {
+            color: #fff;
+            font-weight: 600;
         }
 
-        footer i:hover {
-            transform: scale(1.3);
-            color: #00d4ff;
-        }
-
-        /* ==== Animated Footer Background ==== */
-        .footer-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, #010d30, #03247b, #0057ff, #00d4ff);
-            background-size: 400% 400%;
-            animation: gradientMove 10s ease infinite;
-            z-index: 0;
-            opacity: 0.7;
-        }
-
-        @keyframes gradientMove {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        /* ==== Links & Socials ==== */
-        .footer-link {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .footer-link::after {
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #00d4ff;
-            transition: width 0.3s ease;
-        }
-
-        .footer-link:hover::after {
-            width: 100%;
-        }
-
-        .social-link {
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            transform: scale(1.3);
-            color: #00d4ff !important;
-        }
-
-        /* Divider glow effect */
-        .footer-divider {
-            height: 2px;
-            width: 80%;
-            margin: 0 auto;
-            background: linear-gradient(90deg, transparent, #00d4ff, transparent);
-            animation: glowPulse 3s ease-in-out infinite;
-        }
-
-        @keyframes glowPulse {
-
-            0%,
-            100% {
-                opacity: 0.3;
-            }
-
-            50% {
-                opacity: 1;
-            }
+        footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            padding-top: 1rem;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -220,150 +111,95 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-            <button data-mdb-collapse-init class="navbar-toggler" type="button"
-                data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="{{ asset('img/logo.png') }}" alt="OctoBuss Logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <i class="fa-solid fa-bars"></i>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                    <img src="{{ asset('img/logo.png') }}" height="50" alt="Logo" loading="lazy" />
-                </a>
-
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link fs-5" href="#">Features</a></li>
-                    <li class="nav-item"><a class="nav-link fs-5" href="#">Modules</a></li>
-                    <li class="nav-item"><a class="nav-link fs-5" href="#">Pricing</a></li>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a href="{{ route('feature') }}" class="nav-link">Features</a></li>
+                    <li class="nav-item"><a href="#modules" class="nav-link">Modules</a></li>
+                    <li class="nav-item"><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="" class="btn btn-primary">Get Started</a>
+                    </li>
                 </ul>
-            </div>
-
-            <div class="d-flex align-items-center">
-                <button class="Btn-Container">
-                    <span class="text">Get Started</span>
-                    <span class="icon-Container">
-                        <svg width="16" height="19" viewBox="0 0 16 19" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="1.61321" cy="1.61321" r="1.5" fill="white"></circle>
-                            <circle cx="5.73583" cy="1.61321" r="1.5" fill="white"></circle>
-                            <circle cx="5.73583" cy="5.5566" r="1.5" fill="white"></circle>
-                            <circle cx="9.85851" cy="5.5566" r="1.5" fill="white"></circle>
-                            <circle cx="9.85851" cy="9.5" r="1.5" fill="white"></circle>
-                            <circle cx="13.9811" cy="9.5" r="1.5" fill="white"></circle>
-                            <circle cx="5.73583" cy="13.4434" r="1.5" fill="white"></circle>
-                            <circle cx="9.85851" cy="13.4434" r="1.5" fill="white"></circle>
-                        </svg>
-                    </span>
-                </button>
             </div>
         </div>
     </nav>
 
-    <div style="margin-top: 80px;">
+    <!-- Main Content -->
+    <main class="min-vh-100">
         @yield('content')
-    </div>
+    </main>
 
     <!-- Footer -->
-    <footer class="text-center text-lg-start text-light position-relative overflow-hidden">
-        <!-- Animated Gradient Background -->
-        <div class="footer-bg"></div>
-
-        <!-- Social Section -->
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" data-aos="fade-up">
-            <div class="me-5 d-none d-lg-block">
-                <span>Get connected with us on social networks:</span>
-            </div>
-
-            <div>
-                <a href="#" class="me-4 text-reset social-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="me-4 text-reset social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="me-4 text-reset social-link"><i class="fab fa-google"></i></a>
-                <a href="#" class="me-4 text-reset social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="me-4 text-reset social-link"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="me-4 text-reset social-link"><i class="fab fa-github"></i></a>
-            </div>
-        </section>
-
-        <!-- Links -->
-        <section>
-            <div class="container text-center text-md-start mt-5">
-                <div class="row mt-3">
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <h6 class="text-uppercase fw-bold mb-4 d-flex align-items-center">
-                            <img src="{{ asset('img/logo.png') }}" height="45" alt="Logo"
-                                class="bg-light me-2 rounded-circle p-1" />
-                            OctoBuss
-                        </h6>
-                        <p>The complete business management platform for modern enterprises.</p>
-                    </div>
-
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <h6 class="text-uppercase fw-bold mb-4">Products</h6>
-                        <p><a href="#!" class="text-reset footer-link">Features</a></p>
-                        <p><a href="#!" class="text-reset footer-link">Integrations</a></p>
-                        <p><a href="#!" class="text-reset footer-link">Pricing</a></p>
-                        <p><a href="#!" class="text-reset footer-link">Updates</a></p>
-                    </div>
-
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4" data-aos="fade-up" data-aos-delay="300">
-                        <h6 class="text-uppercase fw-bold mb-4">Company</h6>
-                        <p><a href="#!" class="text-reset footer-link">About</a></p>
-                        <p><a href="#!" class="text-reset footer-link">Careers</a></p>
-                        <p><a href="#!" class="text-reset footer-link">Contact</a></p>
-                        <p><a href="#!" class="text-reset footer-link">Explore Octopyder</a></p>
-                    </div>
-
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4" data-aos="fade-up" data-aos-delay="400">
-                        <h6 class="text-uppercase fw-bold mb-4">Legal</h6>
-                        <p><a href="#!" class="text-reset footer-link">Terms</a></p>
-                        <p><a href="#!" class="text-reset footer-link">Privacy</a></p>
-                        <p><a href="#!" class="text-reset footer-link">Cancellation</a></p>
-                        <p><a href="#!" class="text-reset footer-link">Security</a></p>
-                    </div>
-
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4" data-aos="fade-up"
-                        data-aos-delay="500">
-                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                        <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
-                        <p><i class="fas fa-envelope me-3"></i> info@example.com</p>
-                        <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                        <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="{{ asset('img/logo.png') }}" alt="OctoBuss" class="mb-3" height="45">
+                    <p>OctoBuss — a centralized platform to streamline your entire business management ecosystem.</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6>Product</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Integrations</a></li>
+                        <li><a href="#">Updates</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6>Company</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6>Connect</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#"><i class="fab fa-facebook fs-5"></i></a>
+                        <a href="#"><i class="fab fa-linkedin fs-5"></i></a>
+                        <a href="#"><i class="fab fa-instagram fs-5"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter fs-5"></i></a>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <div class="footer-divider"></div>
-
-        <div class="text-center p-4" style="background-color: rgba(0,0,0,0.05);" data-aos="fade-up">
-            © 2025 Designed & Developed by
-            <a class="text-reset fw-bold" href="https://octopyderservices.com/">OctopyderServices.com</a>
+            <div class="footer-bottom">
+                © {{ date('Y') }} OctoBuss | Designed & Developed by Octopyder Services
+            </div>
         </div>
     </footer>
 
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/mdb.umd.min.js') }}"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
         AOS.init({
-            duration: 1000,
+            duration: 800,
             once: true
         });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+        // Optional: GSAP for section transitions
+        gsap.from("nav", {
+            y: -60,
+            opacity: 0,
+            duration: 0.8
         });
     </script>
+
+    @stack('scripts')
 </body>
 
 </html>

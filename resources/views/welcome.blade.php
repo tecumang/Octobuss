@@ -1048,7 +1048,6 @@
         </div>
 
         {{-- Section - Trusted by Businesses Worldwide --}}
-
         <section class="trusted-section py-5 position-relative overflow-hidden text-center text-dark">
             <!-- Animated Background -->
             <div class="trusted-bg"></div>
@@ -1625,7 +1624,7 @@
                         Get Started <i class="fa-solid fa-arrow-right ms-2"></i>
                     </button>
                     <button class="btn btn-light cta-ripple">
-                        Schedule Demo 
+                        Schedule Demo
                     </button>
                 </div>
             </div>
