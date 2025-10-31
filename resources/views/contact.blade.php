@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Run Your Entire Business on One Smart Platform')
+@section('title', 'Contact Us')
 
 <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 

@@ -128,7 +128,7 @@
                     <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
                     <li class="nav-item ms-lg-3">
-                        <a href="" class="btn btn-primary">Get Started</a>
+                        <a href="{{ route('login') }}" class="btn btn-primary">Get Started</a>
                     </li>
                 </ul>
             </div>
