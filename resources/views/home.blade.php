@@ -34,7 +34,7 @@
 
                     <div class="d-flex flex-wrap gap-3 mb-3">
                         <a href="#" class="btn btn-primary btn-lg px-4">Start Free Trial</a>
-                        <a href="#" class="btn btn-outline-primary btn-lg px-4">Request a Demo</a>
+                        <a href="{{ route('demo') }}" class="btn btn-outline-primary btn-lg px-4">Request a Demo</a>
                     </div>
 
                     <p class="text-muted small">

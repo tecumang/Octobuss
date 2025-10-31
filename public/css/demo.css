@@ -1,0 +1,545 @@
+/* === Hero Section === */
+.bms-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0f2a;
+}
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(90deg, #00bfff, #0a4ed7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Buttons */
+.btn-light {
+  color: #0a4ed7;
+  transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+  background: #f1f6ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline-light {
+  color: #fff;
+  border-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bms-hero {
+    height: auto;
+    padding: 100px 0;
+  }
+
+  .bms-hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .bms-hero p {
+    font-size: 1rem;
+  }
+}
+
+
+
+/* Overview Section  */
+
+/* Section Background */
+.overview-section {
+  background: #0a0f2a;
+  position: relative;
+  overflow: hidden;
+}
+
+.overview-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px 300px at 20% 30%, rgba(0, 212, 255, 0.1), transparent 60%),
+    radial-gradient(600px 300px at 80% 70%, rgba(10, 78, 215, 0.15), transparent 70%);
+  z-index: 0;
+  animation: floatPulse 12s ease-in-out infinite alternate;
+}
+
+@keyframes floatPulse {
+  0% {
+    opacity: 0.85;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+}
+
+.text-accent {
+  color: #00bfff;
+}
+
+/* Carousel */
+.dashboard-showcase {
+  position: relative;
+  max-width: 850px;
+  border-radius: 20px;
+}
+
+.dashboard-showcase img {
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+
+/* CTA Button */
+.btn-primary-gradient {
+  background: linear-gradient(90deg, #0a4ed7, #00bfff);
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-gradient:hover {
+  background: linear-gradient(90deg, #083ec2, #00a3ff);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(10, 78, 215, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+  .overview-section h1 {
+    font-size: 1.9rem;
+  }
+}
+
+
+/* core secion  */
+
+.modules-table-section {
+  background: linear-gradient(180deg, #f7faff 0%, #eef3ff 100%);
+  position: relative;
+}
+
+.modules-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(600px 300px at 20% 20%, rgba(0, 212, 255, 0.12), transparent 60%),
+    radial-gradient(600px 300px at 80% 80%, rgba(10, 78, 215, 0.12), transparent 70%);
+  animation: floatGlow 12s ease-in-out infinite alternate;
+}
+
+@keyframes floatGlow {
+  0% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+
+/* Table Styling */
+.modules-table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  background: transparent;
+  color: #0a0a0a;
+}
+
+.modules-table thead th {
+  background: #0a4ed7;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  padding: 1rem;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.modules-table tbody tr {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
+}
+
+.modules-table tbody tr:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 18px rgba(10, 78, 215, 0.1);
+}
+
+.modules-table td {
+  padding: 1rem 1.2rem;
+  vertical-align: middle;
+}
+
+/* Button */
+.btn-outline-primary {
+  border-color: #0a4ed7;
+  color: #0a4ed7;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background: #0a4ed7;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(10, 78, 215, 0.25);
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: linear-gradient(90deg, #0a4ed7, #00bfff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modules-table thead {
+    display: none;
+  }
+
+  .modules-table tr {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .modules-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .modules-table td:last-child {
+    border-bottom: none;
+  }
+
+  .modules-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #0a4ed7;
+  }
+}
+
+
+/* Step Images */
+.walkthrough-img {
+  max-width: 340px;       /* reduced from 420px → smaller image */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.walkthrough-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(10, 78, 215, 0.2);
+}
+
+/* Balance spacing between text and image */
+.walkthrough-steps .row {
+  margin-bottom: 4rem;
+}
+
+/* Step Number */
+.step-number {
+  width: 42px;
+  height: 42px;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* Headings and paragraph adjustments */
+.walkthrough-steps h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.walkthrough-steps p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #6c757d;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .walkthrough-img {
+    max-width: 300px;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .walkthrough-img {
+    max-width: 260px;
+  }
+
+  .walkthrough-steps h4 {
+    font-size: 1.15rem;
+  }
+
+  .walkthrough-steps p {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+/* Success Section  */
+
+.success-stories-section {
+  background: linear-gradient(180deg, #f7faff 0%, #eef3ff 100%);
+  position: relative;
+}
+
+.success-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px 300px at 20% 20%, rgba(0, 212, 255, 0.12), transparent 60%),
+    radial-gradient(600px 300px at 80% 80%, rgba(10, 78, 215, 0.1), transparent 70%);
+  animation: floatGlow 12s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes floatGlow {
+  0% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(10, 78, 215, 0.05);
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(10, 78, 215, 0.12);
+}
+
+/* Quote Icon */
+.quote-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(90deg, #0a4ed7, #00bfff);
+  box-shadow: 0 0 20px rgba(10, 78, 215, 0.3);
+}
+
+/* Gradient Button */
+.btn-primary-gradient {
+  background: linear-gradient(90deg, #0a4ed7, #00bfff);
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-gradient:hover {
+  background: linear-gradient(90deg, #083ec2, #00a3ff);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(10, 78, 215, 0.3);
+}
+
+/* Glassy Utility */
+.glassy {
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonial-card {
+    text-align: center;
+  }
+
+  .quote-icon {
+    margin-inline: auto;
+  }
+}
+
+/* Request Demo  */
+
+.demo-request-section {
+  background: linear-gradient(180deg, #f7faff 0%, #eef3ff 100%);
+  position: relative;
+}
+
+.demo-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px 300px at 20% 20%, rgba(0, 212, 255, 0.12), transparent 60%),
+    radial-gradient(600px 300px at 80% 80%, rgba(10, 78, 215, 0.12), transparent 70%);
+  animation: floatGlow 12s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes floatGlow {
+  0% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+
+/* Form Styling */
+.demo-form {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(10, 78, 215, 0.08);
+  transition: all 0.3s ease;
+}
+
+.demo-form:hover {
+  box-shadow: 0 10px 30px rgba(10, 78, 215, 0.12);
+}
+
+.form-control {
+  border: 1px solid rgba(10, 78, 215, 0.15);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: #0a4ed7;
+  box-shadow: 0 0 0 0.2rem rgba(10, 78, 215, 0.15);
+}
+
+/* Gradient Button */
+.btn-primary-gradient {
+  background: linear-gradient(90deg, #0a4ed7, #00bfff);
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-gradient:hover {
+  background: linear-gradient(90deg, #083ec2, #00a3ff);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(10, 78, 215, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .demo-form {
+    padding: 1.5rem;
+  }
+
+  .demo-request-section h1 {
+    font-size: 1.8rem;
+  }
+}
+
+
+/* Final CTA Banner */
+.final-cta-section {
+  background: linear-gradient(135deg, #0a4ed7, #00bfff);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px 300px at 20% 20%, rgba(255, 255, 255, 0.15), transparent 60%),
+    radial-gradient(600px 300px at 80% 80%, rgba(255, 255, 255, 0.15), transparent 70%);
+  z-index: 0;
+  animation: pulseBG 10s ease-in-out infinite alternate;
+}
+
+@keyframes pulseBG {
+  0% { transform: scale(1); opacity: 0.85; }
+  100% { transform: scale(1.05); opacity: 1; }
+}
+
+/* Buttons */
+.btn-light {
+  background: #fff;
+  color: #0a4ed7 !important;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+  background: #f0f5ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline-light {
+  border: 2px solid #fff;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background: #fff;
+  color: #0a4ed7 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Typography */
+.final-cta-section h1 {
+  line-height: 1.2;
+}
+
+.final-cta-section p {
+  max-width: 720px;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .final-cta-section h1 {
+    font-size: 1.9rem;
+  }
+
+  .final-cta-section p {
+    font-size: 1rem;
+  }
+
+  .btn-lg {
+    font-size: 1rem;
+    padding: 0.65rem 1.75rem;
+  }
+}
